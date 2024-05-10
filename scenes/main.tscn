@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn6uql7qeatn"]
+
+[ext_resource type="PackedScene" uid="uid://co372k4yhji1k" path="res://scenes/perry.tscn" id="1_m7qx7"]
+[ext_resource type="Texture2D" uid="uid://t2sxf3uue2po" path="res://sprites/tileset.png" id="2_mg0ap"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mx1su"]
+texture = ExtResource("2_mg0ap")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_p13in"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_mx1su")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wgpu1"]
+
+[node name="main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(86, 371)
+scale = Vector2(2.8, 2.8)
+tile_set = SubResource("TileSet_p13in")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(262143, 3, 1, 196608, 3, 1, 196609, 3, 1, 196610, 3, 1, 196611, 3, 1, 196612, 3, 1, 196613, 3, 1, 196614, 3, 1, 196615, 3, 1, 196616, 3, 1, 196617, 3, 1, 196618, 3, 1, 196619, 3, 1, 196620, 3, 1, 2, 3, 0, -131070, 3, 0, -131071, 3, 0, -131067, 3, 0, -196600, 3, 0, -196599, 3, 0, 196621, 3, 1, 196622, 3, 1, 196623, 3, 1, 196624, 3, 1, 196625, 3, 1, 196626, 3, 1, 262142, 3, 1, 262141, 3, 1, 262140, 3, 1, 262139, 3, 1, 262138, 3, 1, 262137, 3, 1, 262136, 3, 1, 327672, 65539, 1, 393208, 65539, 1, 458744, 65539, 1, 327673, 65539, 1, 393209, 65539, 1, 458745, 65539, 1, 327674, 65539, 1, 393210, 65539, 1, 458746, 65539, 1, 327675, 65539, 1, 393211, 65539, 1, 458747, 65539, 1, 327676, 65539, 1, 393212, 65539, 1, 458748, 65539, 1, 327677, 65539, 1, 393213, 65539, 1, 458749, 65539, 1, 327678, 65539, 1, 393214, 65539, 1, 458750, 65539, 1, 327679, 65539, 1, 393215, 65539, 1, 458751, 65539, 1, 262144, 65539, 1, 327680, 65539, 1, 393216, 65539, 1, 262145, 65539, 1, 327681, 65539, 1, 393217, 65539, 1, 262146, 65539, 1, 327682, 65539, 1, 393218, 65539, 1, 262147, 65539, 1, 327683, 65539, 1, 393219, 65539, 1, 262148, 65539, 1, 327684, 65539, 1, 393220, 65539, 1, 262149, 65539, 1, 327685, 65539, 1, 393221, 65539, 1, 262150, 65539, 1, 327686, 65539, 1, 393222, 65539, 1, 262151, 65539, 1, 327687, 65539, 1, 393223, 65539, 1, 262152, 65539, 1, 327688, 65539, 1, 393224, 65539, 1, 262153, 65539, 1, 327689, 65539, 1, 393225, 65539, 1, 262154, 65539, 1, 327690, 65539, 1, 393226, 65539, 1, 262155, 65539, 1, 327691, 65539, 1, 393227, 65539, 1, 262156, 65539, 1, 327692, 65539, 1, 393228, 65539, 1, 262157, 65539, 1, 327693, 65539, 1, 393229, 65539, 1, 262158, 65539, 1, 327694, 65539, 1, 393230, 65539, 1, 262159, 65539, 1, 327695, 65539, 1, 393231, 65539, 1, 262160, 65539, 1, 327696, 65539, 1, 393232, 65539, 1, 262161, 65539, 1, 327697, 65539, 1, 393233, 65539, 1, 262162, 65539, 1, 327698, 65539, 1, 393234, 65539, 1)
+
+[node name="Perry" parent="." instance=ExtResource("1_m7qx7")]
+position = Vector2(65, 325)
+scale = Vector2(0.639999, 0.639999)
+
+[node name="Camera2D" type="Camera2D" parent="Perry"]
+position = Vector2(901.564, 57.8126)
+scale = Vector2(76.786, 2283.19)
+zoom = Vector2(0.9, 0.9)
+limit_left = 0
+limit_top = -20
+limit_bottom = 1000
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 645)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_wgpu1")

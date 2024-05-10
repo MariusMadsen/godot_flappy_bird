@@ -1,0 +1,158 @@
+[gd_scene load_steps=22 format=3 uid="uid://co372k4yhji1k"]
+
+[ext_resource type="Script" path="res://scripts/perry.gd" id="1_21vhy"]
+[ext_resource type="Texture2D" uid="uid://b4x5wmak2ehd8" path="res://sprites/bird.png" id="2_bg6g1"]
+[ext_resource type="Texture2D" uid="uid://dltxq0oi0raiw" path="res://sprites/perrythebird.png" id="3_x7677"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e82r3"]
+atlas = ExtResource("2_bg6g1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hdts"]
+atlas = ExtResource("2_bg6g1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s367l"]
+atlas = ExtResource("2_bg6g1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1acm"]
+atlas = ExtResource("2_bg6g1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jram"]
+atlas = ExtResource("2_bg6g1")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob2iq"]
+atlas = ExtResource("2_bg6g1")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx5o0"]
+atlas = ExtResource("2_bg6g1")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg4v0"]
+atlas = ExtResource("2_bg6g1")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ltdc"]
+atlas = ExtResource("3_x7677")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8nau"]
+atlas = ExtResource("3_x7677")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir3ji"]
+atlas = ExtResource("3_x7677")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlowv"]
+atlas = ExtResource("3_x7677")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rho6g"]
+atlas = ExtResource("3_x7677")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mo5q"]
+atlas = ExtResource("3_x7677")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1xq5"]
+atlas = ExtResource("3_x7677")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec6kq"]
+atlas = ExtResource("3_x7677")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atwvj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e82r3")
+}],
+"loop": true,
+"name": &"bird",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hdts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s367l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1acm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jram")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob2iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx5o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg4v0")
+}],
+"loop": true,
+"name": &"bird_flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ltdc")
+}],
+"loop": true,
+"name": &"perry_the_bird",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8nau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir3ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlowv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rho6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mo5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1xq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec6kq")
+}],
+"loop": true,
+"name": &"perry_the_bird_flying",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1feas"]
+radius = 56.0803
+
+[node name="Perry" type="CharacterBody2D"]
+script = ExtResource("1_21vhy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_atwvj")
+animation = &"perry_the_bird_flying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -3)
+shape = SubResource("CircleShape2D_1feas")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="ready" from="." to="." method="_on_ready"]
