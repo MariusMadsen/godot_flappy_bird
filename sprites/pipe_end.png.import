@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctm3ohjqksah"
-path="res://.godot/imported/tileset.png-ea01ff149dac1b9c6b0d2d1c84c9f0ea.ctex"
+uid="uid://ctdoejt0q3fuy"
+path="res://.godot/imported/pipe_end.png-5ab1a7d25f12e8e0493e5b82789b6829.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-ea01ff149dac1b9c6b0d2d1c84c9f0ea.ctex"]
+source_file="res://sprites/pipe_end.png"
+dest_files=["res://.godot/imported/pipe_end.png-5ab1a7d25f12e8e0493e5b82789b6829.ctex"]
 
 [params]
 
