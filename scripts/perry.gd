@@ -9,6 +9,7 @@ var bottom: float
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var deadsound = $AudioStreamPlayer
+@onready var collision_shape_2d = $CollisionShape2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 3000
@@ -42,11 +43,11 @@ func _on_ready():
 	starting_y_pos = position.y
 	top = starting_y_pos - 350
 	bottom = starting_y_pos + 350
+	collision_shape_2d.disabled = false
 
 func die():
 	if !dead:
 		dead = true
-		print("dead")
+		collision_shape_2d.disabled = true
 		if deadsound.playing == false:
-			print("playing dead")
 			deadsound.play()

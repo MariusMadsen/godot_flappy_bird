@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dykhwd4clgp6y"]
+
+[ext_resource type="Script" path="res://scripts/point.gd" id="1_4q4ng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipudc"]
+size = Vector2(21, 23)
+
+[node name="Point" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_4q4ng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ipudc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

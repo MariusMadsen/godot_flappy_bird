@@ -3,14 +3,20 @@ extends Node
 var pipe_end := load("res://scenes/pipe_end.tscn")
 var pipe := load("res://scenes/pipe.tscn")
 var pipeline := load("res://scenes/pipeline.tscn")
+var point := load("res://point.tscn")
 const spawn := Vector2(5600, 2385)
 @onready var timer = $KillPipeTimer
 @onready var restart_timer = $RestartTimer
-
+@onready var score_text = $Label
+var score = 0
+	
+	
+func _on_point_gained():
+	score +=1
+	score_text.text = str(score)
 	
 func generate_pipe():
 	var node = pipeline.instantiate()
-	print("Script: " + str(node.get_script() == null))
 	node.position = spawn
 	
 	var height := randi_range(1,15)
@@ -25,6 +31,13 @@ func generate_pipe():
 	bottom_pipe_end.scale = Vector2(3,3)
 	bottom_pipe_end.position = Vector2(0, -100*height)
 	node.add_child(bottom_pipe_end)
+	
+	var pointArea = point.instantiate()
+	pointArea.position = Vector2(75, -100*(height))
+	pointArea.scale = Vector2(10, 400)
+	node.add_child(pointArea)
+	pointArea.point_gained.connect(_on_point_gained)
+	
 	
 	for i in range(height+8, 30):
 		var top_pipe = pipe.instantiate()
