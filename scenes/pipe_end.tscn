@@ -4,17 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://ctdoejt0q3fuy" path="res://sprites/pipe_end.png" id="1_28tgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po06f"]
-size = Vector2(148, 77)
+size = Vector2(110, 53)
 
-[node name="PipeEnd" type="AnimatableBody2D"]
+[node name="PipeEnd" type="StaticBody2D"]
 collision_layer = 2
 script = ExtResource("1_4qruo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_28tgj")
 region_enabled = true
-region_rect = Rect2(55, 19, 152, 89)
+region_rect = Rect2(56, 19, 152, 89)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_po06f")

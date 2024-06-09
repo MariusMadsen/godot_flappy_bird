@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const JUMP_VELOCITY = -1200.0
+const JUMP_VELOCITY = -600.0
 
 var starting_y_pos: float
 var top: float
@@ -10,10 +10,13 @@ var bottom: float
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var deadsound = $AudioStreamPlayer
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var gpu_particles_2d = $GPUParticles2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 3000
+var gravity = 1500
 var dead := false
+
+signal died
 
 func _physics_process(delta):
 	 
@@ -27,6 +30,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if !dead && Input.is_action_just_pressed("ui_accept"):
 		velocity.y = JUMP_VELOCITY
+		gpu_particles_2d.emitting = true
 		
 	if velocity.y < 0:
 		animated_sprite_2d.play("bird_flying")
@@ -38,7 +42,6 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-
 func _on_ready():
 	starting_y_pos = position.y
 	top = starting_y_pos - 350
@@ -48,6 +51,6 @@ func _on_ready():
 func die():
 	if !dead:
 		dead = true
-		collision_shape_2d.disabled = true
+		died.emit()
 		if deadsound.playing == false:
 			deadsound.play()

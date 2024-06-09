@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED := 1500
+const SPEED := 700
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

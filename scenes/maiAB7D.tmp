@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn6uql7qeatn"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_7317w"]
+[ext_resource type="PackedScene" uid="uid://co372k4yhji1k" path="res://scenes/perry.tscn" id="1_m7qx7"]
+[ext_resource type="PackedScene" uid="uid://dkewlfvjd1umi" path="res://scenes/hud.tscn" id="4_36tvx"]
+[ext_resource type="Texture2D" uid="uid://cw4jcxvg4wvvx" path="res://sprites/background.png" id="4_h1dcb"]
+[ext_resource type="Shader" path="res://shaders/background.gdshader" id="4_omgg5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hwpi"]
+shader = ExtResource("4_omgg5")
+shader_parameter/tiling = Vector2(4, 10)
+
+[node name="main" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_7317w")
+
+[node name="KillPipeTimer" type="Timer" parent="GameManager"]
+wait_time = 3.0
+autostart = true
+
+[node name="RestartTimer" type="Timer" parent="GameManager"]
+
+[node name="Perry" parent="." instance=ExtResource("1_m7qx7")]
+position = Vector2(228, 399)
+scale = Vector2(3.44, 3.44)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_36tvx")]
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_4hwpi")
+position = Vector2(643, 364)
+texture = ExtResource("4_h1dcb")
+region_rect = Rect2(0, 0, 2000, 720)
+
+[connection signal="timeout" from="GameManager/KillPipeTimer" to="GameManager" method="_on_timer_timeout"]

@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://b76eafb6gt3il"]
+
+[ext_resource type="Script" path="res://scripts/GameOver.gd" id="1_xawpk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s52ph"]
+bg_color = Color(0.600964, 0.621051, 0.40965, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qm7yr"]
+font_size = 32
+
+[sub_resource type="Theme" id="Theme_xrefx"]
+default_font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_ckw0t"]
+font_size = 24
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xawpk")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -337.0
+offset_top = -197.0
+offset_right = 337.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s52ph")
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -135.0
+offset_right = 91.5
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_qm7yr")
+
+[node name="RetryButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = 38.0
+offset_right = 49.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xrefx")
+text = "RETRY
+"
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -67.0
+offset_right = 51.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SCORE: 0
+"
+label_settings = SubResource("LabelSettings_ckw0t")
+
+[node name="HighScore" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -11.5
+offset_right = 54.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "HIGHSCORE: 0"
+
+[connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]
