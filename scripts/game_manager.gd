@@ -29,7 +29,7 @@ func generate_pipe():
 	var node = pipeline.instantiate()
 	node.position = spawn
 	
-	var height := randi_range(1,6)
+	var height := randi_range(2,6)
 	
 	for i in range(height):
 		var bottom_pipe = pipe.instantiate()
